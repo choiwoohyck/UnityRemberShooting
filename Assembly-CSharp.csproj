@@ -62,11 +62,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\EffectController.cs" />
     <Compile Include="Assets\Scripts\BuildingMover.cs" />
     <Compile Include="Assets\Scripts\BulletMover.cs" />
+    <Compile Include="Assets\Scripts\EffectController.cs" />
+    <Compile Include="Assets\Scripts\EnemyGenerator.cs" />
+    <Compile Include="Assets\Scripts\EnemyState.cs" />
+    <Compile Include="Assets\Scripts\ObjectPool.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\PlayerShoot.cs" />
+    <Compile Include="Assets\Scripts\PlayerState.cs" />
+    <Compile Include="Assets\Scripts\RushEnemyController.cs" />
     <Reference Include="UnityEngine">
       <HintPath>D:/2019.4.10f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

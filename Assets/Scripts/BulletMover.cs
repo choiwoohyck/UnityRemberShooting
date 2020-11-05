@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BulletMover : MonoBehaviour
 {
-    float speed = 10;
+    float speed = 15;
+    public int damage = 1;
     public GameObject effectPrefab;
  
     // Start is called before the first frame update
@@ -17,15 +18,24 @@ public class BulletMover : MonoBehaviour
     void Update()
     {
         transform.position = new Vector2(transform.position.x + speed * Time.deltaTime, transform.position.y);
-
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("wall"))
         {
-            Destroy(gameObject);
-            Instantiate(effectPrefab, new Vector2(transform.position.x ,transform.position.y), Quaternion.identity);
+            Instantiate(effectPrefab, new Vector2(transform.position.x, transform.position.y), Quaternion.identity);
+            ObjectPool.ReturnObject(this);
+
+            Debug.Log('d');
+        }
+
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            collision.gameObject.GetComponent<EnemyState>().hp -= damage;
+            collision.gameObject.GetComponent<EnemyState>().colorCourinte = true; 
+            ObjectPool.ReturnObject(this);
+
         }
 
     }
